@@ -1,0 +1,27 @@
+[package]
+name = "webp-image"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+arboard = "3.5.0"
+image = "0.25.6"
+uuid = { version = "1.16.0", features = ["v4"] }
+webp = "0.3.0"
+
+[profile.dev]
+# This isn't required for development builds, but makes development
+# build behavior match release builds. To enable unwinding panics
+# during development, simply remove this line.
+panic = "abort" # Abort on panic
+
+[profile.release]
+opt-level = "z"   # Optimize for size.
+lto = true        # Enable Link Time Optimization
+codegen-units = 1 # Reduce number of codegen units to increase optimizations.
+panic = "abort"   # Abort on panic
+strip = true      # Automatically strip symbols from the binary.
+
+
+[build-dependencies]
+tonic-build = "0.13.0"
