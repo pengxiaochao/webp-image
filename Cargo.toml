@@ -4,9 +4,9 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-arboard = "3.5.0"
+arboard = "3.6.1"
 image = "0.25.6"
-uuid = { version = "1.16.0", features = ["v4"] }
+uuid = { version = "1.18.0", features = ["v4"] }
 webp = "0.3.0"
 
 [profile.dev]
@@ -21,7 +21,3 @@ lto = true        # Enable Link Time Optimization
 codegen-units = 1 # Reduce number of codegen units to increase optimizations.
 panic = "abort"   # Abort on panic
 strip = true      # Automatically strip symbols from the binary.
-
-
-[build-dependencies]
-tonic-build = "0.13.0"
